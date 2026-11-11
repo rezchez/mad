@@ -1,0 +1,11 @@
+{
+  "name": "madrese-school-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend": "./backend/pocketbase serve --http=127.0.0.1:8095 --dir=backend/pb_data",
+    "dev:frontend": "cd frontend && bun run dev",
+    "test": "cd frontend && bun test",
+    "build": "cd frontend && bun run build"
+  }
+}

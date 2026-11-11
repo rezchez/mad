@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=سامانه مدرسه (Madrese Dev)
+GenericName=Madrese Development Launcher
+Comment=اجرای همزمان فرانت‌اند و بک‌اند سامانه مدرسه
+Exec=/home/reza/HDD_500GB/madrese/start.sh
+Path=/home/reza/HDD_500GB/madrese
+Icon=accessories-dictionary
+Terminal=true
+Categories=Development;Education;
+StartupNotify=true

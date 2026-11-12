@@ -27,6 +27,7 @@ export interface SchoolEmployee {
   phone: string;
   role: 'admin' | 'teacher' | 'staff';
   department: string;
+  email?: string;
 }
 
 /**
@@ -164,5 +165,33 @@ export async function getEmployeeProfile(userToken: string, userId: string): Pro
     };
   } catch (e) {
     return null;
+  }
+}
+
+/**
+ * Retrieves all employees across the school. Only accessible to administrators.
+ */
+export async function getAllEmployees(): Promise<SchoolEmployee[]> {
+  try {
+    const adminPb = await getAdminPocketBase();
+    const records = await adminPb.collection('employees').getFullList({
+      sort: 'personnel_code',
+      expand: 'user',
+    });
+
+    return records.map((emp: any) => ({
+      id: emp.id,
+      user: emp.user,
+      personnel_code: emp.personnel_code,
+      first_name: emp.first_name,
+      last_name: emp.last_name,
+      national_id: emp.national_id,
+      phone: emp.phone,
+      role: emp.role,
+      department: emp.department,
+      email: emp.expand?.user?.email || '',
+    }));
+  } catch (e) {
+    return [];
   }
 }

@@ -30,11 +30,14 @@
 body {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--bg-gradient);
   color: var(--text-main);
-  padding: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+body > * {
+  width: 100%;
 }
 
 .login-wrapper {
